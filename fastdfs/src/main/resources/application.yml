@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: fastdfs
+  servlet:
+    # 文件上传配置
+    multipart:
+      enabled: true
+      max-file-size: 1MB
+      max-request-size: 10MB
+management:
+  server:
+    port: 8081
+  endpoints:
+    jmx:
+      exposure:
+        include: '*'
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+server:
+  port: 8080
+# fdfs配置
+fdfs:
+  connect-timeout: 2000
+  so-timeout: 2000
+  tracker-list:
+       - 192.168.133.128:22122
