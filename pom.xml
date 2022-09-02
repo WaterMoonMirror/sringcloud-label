@@ -16,6 +16,7 @@
     <modules>
         <module>fastdfs</module>
         <module>common</module>
+        <module>fastdfs-pool</module>
     </modules>
     <dependencyManagement>
         <dependencies>

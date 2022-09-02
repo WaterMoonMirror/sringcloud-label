@@ -1,0 +1,32 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: fastdfs-pool
+# ===================================================================
+# 分布式文件系统FDFS配置
+# ===================================================================
+fdfs:
+  # 编码字符集
+  charset: UTF-8
+  # 是否开启token校验，开启后通过StoreFile.getWebUrl() 返回带token的链接
+  antiStealToken: true
+  # token生成密钥，与服务端保持一致
+  secretKey: FastDFS1234567890
+  ##获取接连超时时间，单位秒
+  connectTimeout: 20
+  ##网络保持时间，单位秒
+  networkTimeout: 60
+  #nginx访问地址
+  webUrl: http://192.168.133.128:7003/
+  #TrackerList参数,支持多个，如果有多个用逗号分隔
+  trackerList: 192.168.133.128:22122
+  pool:
+    ## Whether to open the fdfsConnection pool, if not, create a new fdfsConnection every time
+    enabled: false
+    ## Maximum waiting time when the maximum number of connections is reached, unit: millisecond, default value is 1000
+    maxWaitTime: 1000
+    ## max_count_per_entry: max fdfsConnection count per host:port , 0 is not limit
+    maxCountPerEntry: 60
+    ## connections whose the idle time exceeds this time will be closed, unit: second, default value is 3600
+    maxIdleTime: 3600
